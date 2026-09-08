@@ -1,0 +1,22 @@
+# ============================================================
+# File: restaurant-service.yml
+# Service: restaurant-service (spring.application.name = "restaurant-service")
+#
+# LỖI ĐÃ SỬA:
+#   1. Đổi tên file từ "config.yml" → "restaurant-service.yml"
+#      để Config Server có thể resolve đúng file theo convention:
+#      {spring.application.name}.yml
+#   2. Thay mật khẩu plaintext bằng cú pháp {cipher}...
+#      để JCE / Spring Cloud Config Server tự giải mã khi trả về.
+# ============================================================
+
+spring:
+  datasource:
+    url: jdbc:mysql://foodx-cluster.local:3306/restaurants_db
+    username: restaurant_service_user
+    # Mật khẩu được mã hóa bằng symmetric key của Config Server
+    # Cú pháp: {cipher}<chuỗi đã mã hóa>
+    password: "{cipher}AQB7k9mXpL2nVqRtYwZsHjDcFuOeIbGa..."
+
+server:
+  port: 8085
