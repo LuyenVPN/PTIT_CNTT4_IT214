@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: order-service
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true # Bắt buộc bật để FallbackFactory hoạt động
+
+# Cấu hình địa chỉ service dạng tĩnh nếu không dựng Eureka Server
+product-service:
+  ribbon:
+    listOfServers: localhost:8082
+user-service:
+  ribbon:
+    listOfServers: localhost:8081
