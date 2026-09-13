@@ -1,5 +1,3 @@
-# FinBank - Bài tập Tổng hợp 3: Giao tiếp đồng bộ bằng RestTemplate
-
 ## 1. Mục tiêu
 
 Nâng cấp hệ thống từ Bài 2 để thực hiện nghiệp vụ chuyển tiền bằng giao tiếp đồng bộ:
@@ -342,21 +340,3 @@ hoặc:
 Ngoài ra, nếu debit thành công nhưng credit thất bại, code có best-effort compensation để cộng lại tiền vào tài khoản nguồn.
 
 Đây chưa phải distributed transaction/Saga hoàn chỉnh. `@Transactional` của Transaction Service không thể tự rollback database của Account Service.
-
-## 15. Nộp bài
-
-Repository nên có:
-
-```text
-Bai3/
-├── account-service/
-├── transaction-service/
-├── api-gateway/
-├── customer-service/
-├── eureka-server/
-├── postman/
-│   └── FinBank-Bai3-RestTemplate.postman_collection.json
-└── README.md
-```
-
-Push source lên Git và nộp link repository qua LMS.
