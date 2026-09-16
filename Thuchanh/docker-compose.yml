@@ -1,0 +1,178 @@
+services:
+
+  # ==================================================
+  # KAFKA
+  # ==================================================
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka-1
+    restart: unless-stopped
+
+    ports:
+      - "9092:9092"
+
+    environment:
+      # KRaft: Kafka vừa làm Broker vừa làm Controller
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: "broker,controller"
+
+      # Controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: "1@kafka:9093"
+
+      # Listener
+      KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093"
+      KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://localhost:9092"
+
+      KAFKA_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT"
+
+      # Cluster ID
+      CLUSTER_ID: "MkU3OEVBNTcwNTJENDM2Qk"
+
+      # Single-node Kafka
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+
+  # ==================================================
+  # REDIS
+  # ==================================================
+  redis:
+    image: redis:latest
+    container_name: redis-1
+    restart: unless-stopped
+
+    ports:
+      - "6379:6379"
+
+    command:
+      - redis-server
+      - --requirepass
+      - "your_secure_password"
+
+
+  # ==================================================
+  # USER DATABASE
+  # ==================================================
+  user-db:
+    image: mysql:8.4
+    container_name: user-db
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234$"
+      MYSQL_DATABASE: "user_db"
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - user_db_data:/var/lib/mysql
+
+
+  # ==================================================
+  # PRODUCT DATABASE
+  # ==================================================
+  product-db:
+    image: mysql:8.4
+    container_name: product-db
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234$"
+      MYSQL_DATABASE: "product_db"
+
+    ports:
+      - "3308:3306"
+
+    volumes:
+      - product_db_data:/var/lib/mysql
+
+
+  # ==================================================
+  # ORDER DATABASE
+  # ==================================================
+  order-db:
+    image: mysql:8.4
+    container_name: order-db
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234$"
+      MYSQL_DATABASE: "order_db"
+
+    ports:
+      - "3309:3306"
+
+    volumes:
+      - order_db_data:/var/lib/mysql
+
+
+  # ==================================================
+  # INVENTORY DATABASE
+  # ==================================================
+  inventory-db:
+    image: mysql:8.4
+    container_name: inventory-db
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234$"
+      MYSQL_DATABASE: "inventory_db"
+
+    ports:
+      - "3310:3306"
+
+    volumes:
+      - inventory_db_data:/var/lib/mysql
+
+
+  # ==================================================
+  # PAYMENT DATABASE
+  # ==================================================
+  payment-db:
+    image: mysql:8.4
+    container_name: payment-db
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234$"
+      MYSQL_DATABASE: "payment_db"
+
+    ports:
+      - "3311:3306"
+
+    volumes:
+      - payment_db_data:/var/lib/mysql
+
+
+  # ==================================================
+  # NOTIFICATION DATABASE
+  # ==================================================
+  notify-db:
+    image: mysql:8.4
+    container_name: notify-db
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234$"
+      MYSQL_DATABASE: "notify_db"
+
+    ports:
+      - "3312:3306"
+
+    volumes:
+      - notify_db_data:/var/lib/mysql
+
+
+# ==================================================
+# VOLUMES
+# ==================================================
+volumes:
+  user_db_data:
+  product_db_data:
+  order_db_data:
+  inventory_db_data:
+  payment_db_data:
+  notify_db_data:

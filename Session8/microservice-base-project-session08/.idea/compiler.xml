@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Api-Gateway" options="-parameters" />
+      <module name="Api-Gateway.main" options="-parameters" />
+      <module name="Api-Gateway.test" options="-parameters" />
+      <module name="Config-Server" options="-parameters" />
+      <module name="Config-Server.main" options="-parameters" />
+      <module name="Config-Server.test" options="-parameters" />
+      <module name="Discovery_Server" options="-parameters" />
+      <module name="Discovery_Server.main" options="-parameters" />
+      <module name="Discovery_Server.test" options="-parameters" />
+      <module name="User-Service" options="-parameters" />
+      <module name="User-Service.main" options="-parameters" />
+      <module name="User-Service.test" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,587 @@
+{
+  "info": {
+    "_postman_id": "8c9c6c8e-7a31-4f1e-9d7a-medicare001",
+    "name": "MediCare Microservices",
+    "description": "Postman Collection for MediCare Hospital Microservices - CRUD APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "patient_url",
+      "value": "http://localhost:8081"
+    },
+    {
+      "key": "doctor_url",
+      "value": "http://localhost:8082"
+    },
+    {
+      "key": "appointment_url",
+      "value": "http://localhost:8083"
+    },
+    {
+      "key": "medical_record_url",
+      "value": "http://localhost:8084"
+    },
+    {
+      "key": "pharmacy_url",
+      "value": "http://localhost:8085"
+    }
+  ],
+  "item": [
+    {
+      "name": "01 - Patient Service",
+      "item": [
+        {
+          "name": "Create Patient",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"fullName\": \"Nguyễn Văn A\",\n    \"dateOfBirth\": \"1990-05-15\",\n    \"gender\": \"MALE\",\n    \"phone\": \"0901234567\",\n    \"address\": \"123 Trần Hưng Đạo, Hà Nội\",\n    \"insuranceId\": \"BH123456789\"\n}"
+            },
+            "url": {
+              "raw": "{{patient_url}}/api/patients",
+              "host": [
+                "{{patient_url}}"
+              ],
+              "path": [
+                "api",
+                "patients"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Patients",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{patient_url}}/api/patients",
+              "host": [
+                "{{patient_url}}"
+              ],
+              "path": [
+                "api",
+                "patients"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Patient By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{patient_url}}/api/patients/1",
+              "host": [
+                "{{patient_url}}"
+              ],
+              "path": [
+                "api",
+                "patients",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Patient",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"fullName\": \"Nguyễn Văn B\",\n    \"dateOfBirth\": \"1990-05-15\",\n    \"gender\": \"MALE\",\n    \"phone\": \"0988888888\",\n    \"address\": \"456 Nguyễn Trãi, Hà Nội\",\n    \"insuranceId\": \"BH123456789\"\n}"
+            },
+            "url": {
+              "raw": "{{patient_url}}/api/patients/1",
+              "host": [
+                "{{patient_url}}"
+              ],
+              "path": [
+                "api",
+                "patients",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Patient",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{patient_url}}/api/patients/1",
+              "host": [
+                "{{patient_url}}"
+              ],
+              "path": [
+                "api",
+                "patients",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 - Doctor Service",
+      "item": [
+        {
+          "name": "Create Doctor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"fullName\": \"Nguyễn Thị Lan\",\n    \"specialty\": \"Tim mạch\",\n    \"phone\": \"0912345678\",\n    \"email\": \"lan@medicare.com\"\n}"
+            },
+            "url": {
+              "raw": "{{doctor_url}}/api/doctors",
+              "host": [
+                "{{doctor_url}}"
+              ],
+              "path": [
+                "api",
+                "doctors"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Doctors",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{doctor_url}}/api/doctors",
+              "host": [
+                "{{doctor_url}}"
+              ],
+              "path": [
+                "api",
+                "doctors"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Doctor By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{doctor_url}}/api/doctors/1",
+              "host": [
+                "{{doctor_url}}"
+              ],
+              "path": [
+                "api",
+                "doctors",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Doctor",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"fullName\": \"Nguyễn Thị Lan\",\n    \"specialty\": \"Nội khoa\",\n    \"phone\": \"0999999999\",\n    \"email\": \"lan@medicare.com\"\n}"
+            },
+            "url": {
+              "raw": "{{doctor_url}}/api/doctors/1",
+              "host": [
+                "{{doctor_url}}"
+              ],
+              "path": [
+                "api",
+                "doctors",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Doctor",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{doctor_url}}/api/doctors/1",
+              "host": [
+                "{{doctor_url}}"
+              ],
+              "path": [
+                "api",
+                "doctors",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 - Appointment Service",
+      "item": [
+        {
+          "name": "Create Appointment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"patientId\": 1,\n    \"doctorId\": 1,\n    \"appointmentDate\": \"2026-09-10\",\n    \"appointmentTime\": \"09:00:00\",\n    \"reason\": \"Khám sức khỏe\",\n    \"status\": \"PENDING\"\n}"
+            },
+            "url": {
+              "raw": "{{appointment_url}}/api/appointments",
+              "host": [
+                "{{appointment_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Appointments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{appointment_url}}/api/appointments",
+              "host": [
+                "{{appointment_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Appointment By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{appointment_url}}/api/appointments/1",
+              "host": [
+                "{{appointment_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Appointment",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"patientId\": 1,\n    \"doctorId\": 1,\n    \"appointmentDate\": \"2026-09-10\",\n    \"appointmentTime\": \"10:00:00\",\n    \"reason\": \"Khám lại\",\n    \"status\": \"CONFIRMED\"\n}"
+            },
+            "url": {
+              "raw": "{{appointment_url}}/api/appointments/1",
+              "host": [
+                "{{appointment_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Appointment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{appointment_url}}/api/appointments/1",
+              "host": [
+                "{{appointment_url}}"
+              ],
+              "path": [
+                "api",
+                "appointments",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 - Medical Record Service",
+      "item": [
+        {
+          "name": "Create Medical Record",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"appointmentId\": 1,\n    \"patientId\": 1,\n    \"doctorId\": 1,\n    \"symptoms\": \"Đau đầu, chóng mặt\",\n    \"diagnosis\": \"Rối loạn tiền đình\",\n    \"conclusion\": \"Theo dõi và tái khám\",\n    \"examinationDate\": \"2026-09-10T10:30:00\"\n}"
+            },
+            "url": {
+              "raw": "{{medical_record_url}}/api/medical-records",
+              "host": [
+                "{{medical_record_url}}"
+              ],
+              "path": [
+                "api",
+                "medical-records"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Medical Records",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{medical_record_url}}/api/medical-records",
+              "host": [
+                "{{medical_record_url}}"
+              ],
+              "path": [
+                "api",
+                "medical-records"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Medical Record By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{medical_record_url}}/api/medical-records/1",
+              "host": [
+                "{{medical_record_url}}"
+              ],
+              "path": [
+                "api",
+                "medical-records",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Medical Record",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"appointmentId\": 1,\n    \"patientId\": 1,\n    \"doctorId\": 1,\n    \"symptoms\": \"Đau đầu nhẹ\",\n    \"diagnosis\": \"Rối loạn tiền đình nhẹ\",\n    \"conclusion\": \"Tiếp tục theo dõi\",\n    \"examinationDate\": \"2026-09-10T10:30:00\"\n}"
+            },
+            "url": {
+              "raw": "{{medical_record_url}}/api/medical-records/1",
+              "host": [
+                "{{medical_record_url}}"
+              ],
+              "path": [
+                "api",
+                "medical-records",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Medical Record",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{medical_record_url}}/api/medical-records/1",
+              "host": [
+                "{{medical_record_url}}"
+              ],
+              "path": [
+                "api",
+                "medical-records",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "05 - Pharmacy Service",
+      "item": [
+        {
+          "name": "Create Medicine",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Paracetamol 500mg\",\n    \"activeIngredient\": \"Paracetamol\",\n    \"unit\": \"Viên\",\n    \"manufacturer\": \"DHG Pharma\",\n    \"price\": 1500\n}"
+            },
+            "url": {
+              "raw": "{{pharmacy_url}}/api/medicines",
+              "host": [
+                "{{pharmacy_url}}"
+              ],
+              "path": [
+                "api",
+                "medicines"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Medicines",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{pharmacy_url}}/api/medicines",
+              "host": [
+                "{{pharmacy_url}}"
+              ],
+              "path": [
+                "api",
+                "medicines"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Medicine By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{pharmacy_url}}/api/medicines/1",
+              "host": [
+                "{{pharmacy_url}}"
+              ],
+              "path": [
+                "api",
+                "medicines",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Medicine",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Paracetamol 500mg\",\n    \"activeIngredient\": \"Paracetamol\",\n    \"unit\": \"Viên\",\n    \"manufacturer\": \"DHG Pharma\",\n    \"price\": 2000\n}"
+            },
+            "url": {
+              "raw": "{{pharmacy_url}}/api/medicines/1",
+              "host": [
+                "{{pharmacy_url}}"
+              ],
+              "path": [
+                "api",
+                "medicines",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Medicine",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{pharmacy_url}}/api/medicines/1",
+              "host": [
+                "{{pharmacy_url}}"
+              ],
+              "path": [
+                "api",
+                "medicines",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

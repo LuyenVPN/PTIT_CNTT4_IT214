@@ -1,0 +1,13 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native # Kích hoạt profile native để đọc local
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config-repo # folder config-repo sẽ để trong folder resource để đọc các cấu hình service con

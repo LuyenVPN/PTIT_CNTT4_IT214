@@ -1,0 +1,136 @@
+{
+  "info": {
+    "_postman_id": "finbank-bai3-resttemplate",
+    "name": "FinBank - Bai Tap Tong Hop 3 - RestTemplate",
+    "description": "Kiem thu Account Service va synchronous transfer qua API Gateway.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8222"
+    }
+  ],
+  "item": [
+    {
+      "name": "01 - Create Account 1001",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"accountNumber\": \"1001\",\n  \"balance\": 10000000,\n  \"customerName\": \"Nguyen Van A\"\n}"
+        },
+        "url": "{{baseUrl}}/api/accounts"
+      }
+    },
+    {
+      "name": "02 - Create Account 1002",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"accountNumber\": \"1002\",\n  \"balance\": 5000000,\n  \"customerName\": \"Nguyen Van B\"\n}"
+        },
+        "url": "{{baseUrl}}/api/accounts"
+      }
+    },
+    {
+      "name": "03 - Get Account 1001",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/accounts/1001"
+      }
+    },
+    {
+      "name": "04 - Get Balance 1001",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/accounts/1001/balance"
+      }
+    },
+    {
+      "name": "05 - Transfer Test 1 - SUCCESS 1001 to 1002",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fromAccountNumber\": \"1001\",\n  \"toAccountNumber\": \"1002\",\n  \"amount\": 2000000,\n  \"description\": \"Chuyen tien thanh toan hoa don\"\n}"
+        },
+        "url": "{{baseUrl}}/api/transactions/transfer"
+      }
+    },
+    {
+      "name": "06 - Check Balance 1001",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/accounts/1001/balance"
+      }
+    },
+    {
+      "name": "07 - Check Balance 1002",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/accounts/1002/balance"
+      }
+    },
+    {
+      "name": "08 - Transfer Test 2 - FAILED Insufficient Balance",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fromAccountNumber\": \"1001\",\n  \"toAccountNumber\": \"1002\",\n  \"amount\": 100000000,\n  \"description\": \"Test khong du so du\"\n}"
+        },
+        "url": "{{baseUrl}}/api/transactions/transfer"
+      }
+    },
+    {
+      "name": "09 - Transfer Test 3 - FAILED Account 9999",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fromAccountNumber\": \"1001\",\n  \"toAccountNumber\": \"9999\",\n  \"amount\": 1000000,\n  \"description\": \"Test tai khoan dich khong ton tai\"\n}"
+        },
+        "url": "{{baseUrl}}/api/transactions/transfer"
+      }
+    },
+    {
+      "name": "10 - Get All Transactions",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/transactions"
+      }
+    }
+  ]
+}
