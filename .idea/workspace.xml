@@ -13,6 +13,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "LuyenVPN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/LuyenVPN/PTIT_CNTT4_IT214",
+    "accountId": "bfc73333-7d5f-47da-821e-bd895e08d5e3"
+  }
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
