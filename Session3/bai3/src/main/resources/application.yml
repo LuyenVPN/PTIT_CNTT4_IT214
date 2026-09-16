@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 server:
   port: 8888
 
@@ -9,3 +10,16 @@ spring:
           # Đã bổ sung ".git" ở cuối URI và sửa tên nhánh mặc định thành "main"
           uri: https://github.com/foodx/config-repo.git
           default-label: main
+=======
+server:
+  port: 8888
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          # Đã bổ sung ".git" ở cuối URI và sửa tên nhánh mặc định thành "main"
+          uri: https://github.com/foodx/config-repo.git
+          default-label: main
+>>>>>>> 4101676851925098dd510ffc36d26f9bc968f423

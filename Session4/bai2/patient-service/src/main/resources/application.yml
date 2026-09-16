@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 server:
   port: 8081
 
@@ -17,4 +18,25 @@ spring:
     show-sql: true
     properties:
       hibernate:
+=======
+server:
+  port: 8081
+
+spring:
+  application:
+    name: patient-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/medicare_patient_db
+    username: root
+    password: luyen123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+>>>>>>> 4101676851925098dd510ffc36d26f9bc968f423
         dialect: org.hibernate.dialect.MySQLDialect

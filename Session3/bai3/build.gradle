@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.3'
@@ -33,3 +34,40 @@ dependencyManagement {
 tasks.named('test') {
     useJUnitPlatform()
 }
+=======
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.foodx'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('springCloudVersion', "2023.0.0")
+}
+
+dependencies {
+    implementation 'org.springframework.cloud:spring-cloud-config-server'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+>>>>>>> 4101676851925098dd510ffc36d26f9bc968f423

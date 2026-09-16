@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package org.example.orderservice.client;
 
 import org.example.orderservice.dto.ProductInfo;
@@ -16,3 +17,23 @@ public interface ProductClient {
     @GetMapping("/api/products")
     List<ProductInfo> getAll();
 }
+=======
+package org.example.orderservice.client;
+
+import org.example.orderservice.dto.ProductInfo;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
+
+@FeignClient(name = "product-service", fallbackFactory = ProductClientFallbackFactory.class)
+public interface ProductClient {
+
+    @GetMapping("/api/products/{id}")
+    ProductInfo getById(@PathVariable("id") Long id);
+
+    @GetMapping("/api/products")
+    List<ProductInfo> getAll();
+}
+>>>>>>> 4101676851925098dd510ffc36d26f9bc968f423

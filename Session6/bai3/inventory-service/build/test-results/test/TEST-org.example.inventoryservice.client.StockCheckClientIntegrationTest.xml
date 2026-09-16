@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.inventoryservice.client.StockCheckClientIntegrationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-09-10T01:50:45.006Z" hostname="LUYENDV" time="3.406">
+  <properties/>
+  <testcase name="WireMock delay 5s: Phải ngắt sau timeout và trả fallback trong vòng &lt; 3s" classname="org.example.inventoryservice.client.StockCheckClientIntegrationTest" time="3.389"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

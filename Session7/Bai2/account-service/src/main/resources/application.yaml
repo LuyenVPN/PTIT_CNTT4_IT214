@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 server:
   port: 8082
 
@@ -13,4 +14,21 @@ eureka:
     fetch-registry: true
 
   instance:
+=======
+server:
+  port: 8082
+
+spring:
+  application:
+    name: account-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+  instance:
+>>>>>>> 4101676851925098dd510ffc36d26f9bc968f423
     prefer-ip-address: true

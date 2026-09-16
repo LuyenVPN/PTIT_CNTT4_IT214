@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package org.example.orderservice.client;
 
 import org.example.orderservice.dto.UserInfo;
@@ -11,3 +12,18 @@ public interface UserClient {
     @GetMapping("/api/users/{userId}")
     UserInfo getUserById(@PathVariable("userId") Long userId);
 }
+=======
+package org.example.orderservice.client;
+
+import org.example.orderservice.dto.UserInfo;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+@FeignClient(name = "user-service")
+public interface UserClient {
+
+    @GetMapping("/api/users/{userId}")
+    UserInfo getUserById(@PathVariable("userId") Long userId);
+}
+>>>>>>> 4101676851925098dd510ffc36d26f9bc968f423
