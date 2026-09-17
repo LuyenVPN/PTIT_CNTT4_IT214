@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: storex-order-service
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.kafka: INFO
+    reactor.kafka: INFO

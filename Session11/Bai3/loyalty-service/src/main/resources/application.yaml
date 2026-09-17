@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: loyalty-service
+  main:
+    web-application-type: none
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    consumer:
+      group-id: ${KAFKA_GROUP_ID:storex-loyalty}
+      client-id: ${KAFKA_CLIENT_ID:loyalty-${INSTANCE_ID:1}}
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      concurrency: ${KAFKA_CONCURRENCY:1}
+
+storex:
+  kafka:
+    topic: storex-order-events
