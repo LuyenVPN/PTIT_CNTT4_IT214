@@ -1,4 +1,4 @@
-# PHẦN 1: MÃ NGUỒN HOÀN CHỈNH (SPRING BOOT)
+# PHẦN 1: MÃ NGUỒN
 
 ### Cấu hình chung cho cả 3 service (Maven POM Dependencies)
 
@@ -490,7 +490,7 @@ public class PaymentApplication {
 
 ---
 
-# PHẦN 2: BÁO CÁO PHÂN TÍCH VÀ HƯỚNG DẪN NỘP BÀI (REPORT.md)
+# PHẦN 2: BÁO CÁO PHÂN TÍCH
 
 ## 1. Mô tả luồng sự kiện và vai trò của Correlation ID
 

@@ -1,4 +1,4 @@
-# PHẦN 1: MÃ NGUỒN HOÀN CHỈNH (SPRING BOOT)
+# PHẦN 1: MÃ NGUỒN
 
 ### Cấu hình Dependency chung (áp dụng cho cả 3 service)
 
@@ -489,7 +489,7 @@ public class NotificationApplication {
 
 ---
 
-# PHẦN 2: BÁO CÁO PHÂN TÍCH (REPORT.md)
+# PHẦN 2: BÁO CÁO PHÂN TÍCH
 
 ## 1. Mô tả luồng sự kiện Choreography Saga và vai trò của từng service
 
